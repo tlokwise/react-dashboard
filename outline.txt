@@ -1,0 +1,18 @@
+Project Outline
+
+- public
+    >images
+
+-src
+    >assets
+    >components
+        >Home
+        >Generator
+        >Schedule
+        >Tasks
+        >Jet Fuel
+    >css
+        >mobile
+        *
+    >pages
+    >ts

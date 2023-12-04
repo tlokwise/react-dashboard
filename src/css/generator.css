@@ -1,0 +1,49 @@
+.generator {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: fit-content;
+  z-index: -1;
+}
+
+.generator-content-header {
+  display: flex;
+  justify-content:  space-between;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.generator-tabs  {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* Adjust the gap between elements as needed */
+  margin-bottom: 30px;
+}
+
+.generator-card {
+  max-width: 25rem;
+  background-color: var(--accent);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  /* margin-bottom: 30px; */
+  border: none;
+  cursor: pointer;
+}
+.generator-card .generator-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26px;
+}
+.generator-card .generator-card-header h4 {
+  margin-top: 10px;
+}
