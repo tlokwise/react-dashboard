@@ -3,6 +3,7 @@
     height: fit-content;
     width: 100%;
     box-shadow: var(--bottom-shadow);
+    background-color: #fff;
 }
 
 /* TOP PART OF THE NAVIGATION */
@@ -10,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 150px;  
+    padding: 0px 150px;
     width: 100%;
 }
 .nav-top h1.brand-name {

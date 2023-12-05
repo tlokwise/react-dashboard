@@ -20,13 +20,13 @@
 
 .generator-tabs  {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px; /* Adjust the gap between elements as needed */
   margin-bottom: 30px;
 }
 
 .generator-card {
-  max-width: 25rem;
+  max-width: 26rem;
   background-color: var(--accent);
   color: #fff;
   display: flex;
@@ -46,4 +46,45 @@
 }
 .generator-card .generator-card-header h4 {
   margin-top: 10px;
+}
+.generator-usage-tracker {
+  background-color: var(--greenstone);
+}
+.generator-diagnostics {
+  background-color: var(--purple);
+}
+.generator-event-logs {
+  background-color: var(--orange)
+}
+
+
+
+/* MODAL */
+.generator-event-logs-modal {
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: fit-content;
+  max-height: 60%;
+  overflow: scroll;
+  width: 70%;
+  padding: 20px;
+
+}
+
+.modal-content {
+  width: 100%;
+}
+
+.generator-event-logs-modal .modal-close-btn{
+  margin-right: 20px;
+}
+.modal-header {
+  margin-bottom: 20px;
+}
+.modal-footer {
+  margin-top: 20px;
 }

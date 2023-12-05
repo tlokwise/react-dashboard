@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <header className="header">
       <div className="nav-top">
-        <h1 className="brand-name">Ultimate Heli</h1>
+        <h1 className="brand-name">Ultimate Dashboard</h1>
 
         <div className="user-profile">
           <img

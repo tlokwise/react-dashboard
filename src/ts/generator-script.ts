@@ -1,5 +1,5 @@
 
 
-export default function showGeneratorDieselTracker(){
-  console.log("showing generatro diesel tracker");
+export const generatorEventLogs : string = ()=>{
+  return "this is a string"
 }
