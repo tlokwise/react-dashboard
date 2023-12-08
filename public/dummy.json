@@ -1,0 +1,93 @@
+[
+    {
+        "noStart": "A",
+        "date": "06 Dec 2023",
+        "fuelAdded": 100,
+        "initiaFuel": 120,
+        "finalFuel": 220,
+        "finalPercentage": 70,
+        "startTime": "",
+        "stopTime": "",
+        "runTime": "",
+        "errorCodeComment": "",
+        "name": ""
+    },
+    {
+        "noStart": 101,
+        "date": "06 Dec 2023",
+        "fuelAdded": null,
+        "initiaFuel": 220,
+        "finalFuel": 30,
+        "finalPercentage": 10,
+        "startTime": "15:30",
+        "stopTime": "17:30",
+        "runTime": "",
+        "errorCodeComment": "",
+        "name": ""
+    },
+    {
+        "noStart": 101,
+        "date": "06 Dec 2023",
+        "fuelAdded": null,
+        "initiaFuel": 220,
+        "finalFuel": 30,
+        "finalPercentage": 10,
+        "startTime": "14:30",
+        "stopTime": "17:00",
+        "runTime": "01:30",
+        "errorCodeComment": "",
+        "name": ""
+    },
+    {
+        "noStart": 101,
+        "date": "06 Dec 2023",
+        "fuelAdded": null,
+        "initiaFuel": 220,
+        "finalFuel": 30,
+        "finalPercentage": 10,
+        "startTime": "13:30",
+        "stopTime": "17:00",
+        "runTime": "03:30",
+        "errorCodeComment": "",
+        "name": ""
+    }
+    ,{
+        "noStart": 101,
+        "date": "06 Dec 2023",
+        "fuelAdded": null,
+        "initiaFuel": 220,
+        "finalFuel": 30,
+        "finalPercentage": 10,
+        "startTime": "13:00",
+        "stopTime": "17:00",
+        "runTime": "04:00",
+        "errorCodeComment": "",
+        "name": ""
+    },
+    {
+        "noStart": "A",
+        "date": "06 Dec 2023",
+        "fuelAdded": 100,
+        "initiaFuel": 120,
+        "finalFuel": 220,
+        "finalPercentage": 70,
+        "startTime": "",
+        "stopTime": "",
+        "runTime": "",
+        "errorCodeComment": "",
+        "name": ""
+    },
+    {
+        "noStart": 101,
+        "date": "06 Dec 2023",
+        "fuelAdded": null,
+        "initiaFuel": 220,
+        "finalFuel": 30,
+        "finalPercentage": 10,
+        "startTime": "14:30",
+        "stopTime": "17:00",
+        "runTime": "01:30",
+        "errorCodeComment": "",
+        "name": ""
+    }
+]

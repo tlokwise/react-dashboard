@@ -1,6 +1,6 @@
 .generator {
   position: absolute;
-  top: 200px;
+  top: 150px;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -58,7 +58,6 @@
 }
 
 
-
 /* MODAL */
 .generator-event-logs-modal {
   z-index: 1;
@@ -84,7 +83,44 @@
 }
 .modal-header {
   margin-bottom: 20px;
+  
 }
 .modal-footer {
   margin-top: 20px;
+}
+
+
+/* SPREADSHEET DYNAMIC CONTENT */
+.spreadsheet-new-entry-input {
+  width: 100%;
+  height: 100%;
+  border:  none;
+  padding: 5px;
+}
+.new-entry-row tr {
+  transition: all .3 ease-in;
+}
+.new-entry-row tr td {
+  padding: 0;
+}
+.new-entry-controls{
+  text-align: end;
+}
+.new-entry-cancel-btn {
+  float: right;
+}
+.new-entry-save-btn {
+  width: 90px;
+  margin-right: 20px;
+}
+
+
+/* delete row side bin */
+.delete-row-side-bin {
+  position: absolute;
+  background-color: var(--greenstone);
+}
+.side-bin {
+  color: red;
+  font-size: 20px;
 }

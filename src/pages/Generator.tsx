@@ -1,22 +1,79 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import "../css/generator.css";
 import "bootstrap/dist/css/bootstrap.css";
-import Navbar from "../components/Navbar";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 // import Alert from "react-bootstrap/Alert";
 import { GraphUp, FileRuled, Tools, List } from "react-bootstrap-icons";
 
+//COMPONENTS
+import Navbar from "../components/Navbar";
+import GeneratorNewEntry from "../components/GeneratorNewEntry";
+//FUNCTIONS AND CONSTANTS
+
 import GeneratorEventLogs from "../components/GeneratorEventLogsModal";
+import SideBin from "../components/SideBin";
+
+type SpreadsheetEntry = {
+  noStart: string | number;
+  date: string;
+  fuelAdded: number;
+  initiaFuel: number;
+  finalFuel: number;
+  finalPercentage: number;
+  startTime: string;
+  stopTime: string;
+  runTime: string;
+  errorCodeComment: string;
+  name: string;
+};
 
 export default function Generator() {
-  
-  const [showGeneratorEventLogs, setShowGeneratorEventLogs] = useState(false);  
+  //Generator Event Logs Handler
+  const [showGeneratorEventLogs, setShowGeneratorEventLogs] = useState(false);
   const onGeneratorEventLogsClick = () => {
     setShowGeneratorEventLogs(true);
   };
 
+  //New spreasheet entry handler
+  const [spreadsheetNewEntry, setSpreadsheetNewEntry] = useState(false);
+  const onSpreadsheetNewEntryClick = () => {
+    if (spreadsheetNewEntry) {
+      setSpreadsheetNewEntry(false);
+    } else {
+      setSpreadsheetNewEntry(true);
+    }
+  };
+
+  //SPREADSHEET ROW DELETE SIDE BIN
+  const [showRowDeleteBin, setShowRowDeleteBin] = useState(false);
+  const onRowHover = () => {
+    console.log("hovering around");
+    setShowRowDeleteBin(true);
+  };
+  const onRowLeave = () => {
+    console.log("mouse leaving");
+    setShowRowDeleteBin(false);
+  };
+
+  //fetching spreadsheet data
+  const [spreadsheetData, setSpreadsheetData] = useState<SpreadsheetEntry[]>(
+    []
+  );
+  useEffect(() => {
+    fetch("/dummy.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setSpreadsheetData(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [spreadsheetData]);
   return (
     <>
       <GeneratorEventLogs show={showGeneratorEventLogs ? "show" : ""} />
@@ -62,11 +119,16 @@ export default function Generator() {
         </div>
         <div className="generator-content">
           <div className="generator-content-header">
-            <h1>Generator Spreadsheet</h1>
-            <Button className="btn btn-success">New Entry</Button>
+            <h1>Spreadsheet</h1>
+            <Button
+              className="btn btn-success"
+              onClick={onSpreadsheetNewEntryClick}
+            >
+              New Entry
+            </Button>
           </div>
 
-          <Table striped bordered hover>
+          <Table striped bordered hover className="spreedsheet-table">
             <thead>
               <tr>
                 <th>No/Starts</th>
@@ -83,71 +145,28 @@ export default function Generator() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>A</td>
-                <td>28 Nov 2023</td>
-                <td>80</td>
-                <td>150</td>
-                <td>230</td>
-                <td>87%</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>28 Nov 2023</td>
-                <td></td>
-                <td>150</td>
-                <td>230</td>
-                <td>57%</td>
-                <td>14:40</td>
-                <td>17:30</td>
-                <td>2:50</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>28 Nov 2023</td>
-                <td></td>
-                <td>150</td>
-                <td>230</td>
-                <td>27%</td>
-                <td>14:40</td>
-                <td>17:30</td>
-                <td>2:50</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>28 Nov 2023</td>
-                <td>80</td>
-                <td>150</td>
-                <td>230</td>
-                <td>87%</td>
-                <td>14:40</td>
-                <td>17:30</td>
-                <td>2:50</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>28 Nov 2023</td>
-                <td>80</td>
-                <td>150</td>
-                <td>230</td>
-                <td>87%</td>
-                <td>14:40</td>
-                <td>17:30</td>
-                <td>2:50</td>
-                <td></td>
-                <td></td>
-              </tr>
+              {spreadsheetNewEntry && <GeneratorNewEntry />}
+              {spreadsheetData.map((data, index) => (
+                <tr
+                  key={index}
+                  onMouseEnter={onRowHover}
+                  onMouseLeave={onRowLeave}
+                >
+                  <td>{data.noStart}</td>
+                  <td>{data.date}</td>
+                  <td>{data.fuelAdded}</td>
+                  <td>{data.initiaFuel}</td>
+                  <td>{data.finalFuel}</td>
+                  <td>{data.finalPercentage}</td>
+                  <td>{data.startTime}</td>
+                  <td>{data.stopTime}</td>
+                  <td>{data.runTime}</td>
+                  <td>{data.errorCodeComment}</td>
+                  <td>{data.name}</td>
+                  <td>{index}</td>
+                  {showRowDeleteBin && <SideBin />}
+                </tr>
+              ))}
             </tbody>
           </Table>
         </div>
