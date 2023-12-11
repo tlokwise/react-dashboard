@@ -6,15 +6,21 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 // import Alert from "react-bootstrap/Alert";
-import { GraphUp, FileRuled, Tools, List } from "react-bootstrap-icons";
+import {
+  GraphUp,
+  FileRuled,
+  Tools,
+  List,
+  Printer,
+  Share,
+  Plus,
+} from "react-bootstrap-icons";
 
 //COMPONENTS
 import Navbar from "../components/Navbar";
 import GeneratorNewEntry from "../components/GeneratorNewEntry";
-//FUNCTIONS AND CONSTANTS
-
-import GeneratorEventLogs from "../components/GeneratorEventLogsModal";
 import SideBin from "../components/SideBin";
+//FUNCTIONS AND CONSTANTS
 
 type SpreadsheetEntry = {
   noStart: string | number;
@@ -31,12 +37,6 @@ type SpreadsheetEntry = {
 };
 
 export default function Generator() {
-  //Generator Event Logs Handler
-  const [showGeneratorEventLogs, setShowGeneratorEventLogs] = useState(false);
-  const onGeneratorEventLogsClick = () => {
-    setShowGeneratorEventLogs(true);
-  };
-
   //New spreasheet entry handler
   const [spreadsheetNewEntry, setSpreadsheetNewEntry] = useState(false);
   const onSpreadsheetNewEntryClick = () => {
@@ -77,7 +77,6 @@ export default function Generator() {
   }, [spreadsheetData]);
   return (
     <>
-      <GeneratorEventLogs show={showGeneratorEventLogs ? "show" : ""} />
       <Navbar />
       <div className="generator">
         <div className="generator-alerts"></div>
@@ -106,10 +105,7 @@ export default function Generator() {
             <Card.Body className="report-body">Excessive leaks</Card.Body>
           </Card>
           {/* GENERATOR EVENT LOGS MODAL */}
-          <Card
-            className="generator-card generator-event-logs"
-            onClick={onGeneratorEventLogsClick}
-          >
+          <Card className="generator-card generator-event-logs">
             <Card.Header className="generator-card-header">
               <List />
               <h4>Generator Event Logs</h4>
@@ -122,12 +118,21 @@ export default function Generator() {
         <div className="generator-content">
           <div className="generator-content-header">
             <h1>Spreadsheet</h1>
-            <Button
-              className="btn btn-success"
-              onClick={onSpreadsheetNewEntryClick}
-            >
-              New Entry
-            </Button>
+            <div className="generator-content-controls">
+              <Button
+                className="btn btn-success generator-spreadsheet-new-entry-btn"
+                onClick={onSpreadsheetNewEntryClick}
+              >
+                <Plus />
+                New Entry
+              </Button>
+              <Button className="btn btn-secondary generator-spreadsheet-print-btn">
+                <Printer />
+              </Button>
+              <Button className="btn btn-secondary generator-spreadsheet-share-btn">
+                <Share />
+              </Button>
+            </div>
           </div>
 
           <Table striped bordered hover className="spreedsheet-table">
