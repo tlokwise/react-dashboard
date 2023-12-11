@@ -3,9 +3,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import {
   House,
   LightningCharge,
-  Search,
+  ShieldLock,
+  // Search,
   ListCheck,
   BoxArrowRight,
+  ExclamationTriangle,
+  Droplet,
+  Tools,
   Bell,
 } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
@@ -48,18 +52,35 @@ export default function Navbar() {
             </a>
           </li>
           <li className="nav-item">
-            <Link to="#requests" className="nav-link">
+            <a href="#fuel" className="nav-link">
+              <Droplet />
+              <span>Fuel</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <Link to="#Tasks" className="nav-link">
               <ListCheck />
-              <span>Todo</span>
+              <span>Tasks</span>
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#inspection" className="nav-link">
-              <Search />
-              <span>Inspection</span>
+            <Link to="#maintenance" className="nav-link">
+              <Tools />
+              <span>Maintenance</span>
             </Link>
           </li>
-
+          <li className="nav-item">
+            <a href="#incidence" className="nav-link">
+              <ExclamationTriangle />
+              <span>Incidents</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#security" className="nav-link">
+              <ShieldLock />
+              <span>Security</span>
+            </a>
+          </li>
         </ul>
       </div>
     </header>
