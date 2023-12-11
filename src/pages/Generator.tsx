@@ -19,10 +19,8 @@ import {
 //COMPONENTS
 import Navbar from "../components/Navbar";
 import GeneratorNewEntry from "../components/GeneratorNewEntry";
-//FUNCTIONS AND CONSTANTS
-
-import GeneratorEventLogs from "../components/GeneratorEventLogsModal";
 import SideBin from "../components/SideBin";
+//FUNCTIONS AND CONSTANTS
 
 type SpreadsheetEntry = {
   noStart: string | number;
@@ -39,12 +37,6 @@ type SpreadsheetEntry = {
 };
 
 export default function Generator() {
-  //Generator Event Logs Handler
-  const [showGeneratorEventLogs, setShowGeneratorEventLogs] = useState(false);
-  const onGeneratorEventLogsClick = () => {
-    setShowGeneratorEventLogs(true);
-  };
-
   //New spreasheet entry handler
   const [spreadsheetNewEntry, setSpreadsheetNewEntry] = useState(false);
   const onSpreadsheetNewEntryClick = () => {
@@ -85,7 +77,6 @@ export default function Generator() {
   }, [spreadsheetData]);
   return (
     <>
-      <GeneratorEventLogs show={showGeneratorEventLogs ? "show" : ""} />
       <Navbar />
       <div className="generator">
         <div className="generator-alerts"></div>
@@ -114,10 +105,7 @@ export default function Generator() {
             <Card.Body className="report-body">Excessive leaks</Card.Body>
           </Card>
           {/* GENERATOR EVENT LOGS MODAL */}
-          <Card
-            className="generator-card generator-event-logs"
-            onClick={onGeneratorEventLogsClick}
-          >
+          <Card className="generator-card generator-event-logs">
             <Card.Header className="generator-card-header">
               <List />
               <h4>Generator Event Logs</h4>

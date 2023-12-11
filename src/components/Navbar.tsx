@@ -2,9 +2,9 @@ import "../css/navbar.css";
 import "bootstrap/dist/css/bootstrap.css";
 import {
   House,
-  Chat,
   LightningCharge,
   Search,
+  ListCheck,
   BoxArrowRight,
   Bell,
 } from "react-bootstrap-icons";
@@ -49,8 +49,8 @@ export default function Navbar() {
           </li>
           <li className="nav-item">
             <Link to="#requests" className="nav-link">
-              <Chat />
-              <span>Requests</span>
+              <ListCheck />
+              <span>Todo</span>
             </Link>
           </li>
           <li className="nav-item">
