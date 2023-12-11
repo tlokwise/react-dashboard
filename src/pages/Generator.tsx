@@ -48,15 +48,16 @@ export default function Generator() {
   };
 
   //SPREADSHEET ROW DELETE SIDE BIN
-  const [showRowDeleteBin, setShowRowDeleteBin] = useState(false);
-  const onRowHover = () => {
-    console.log("hovering around");
-    setShowRowDeleteBin(true);
+  const [hoveredRow, setHoveredRow] = useState(-1);
+  const onRowHover = (index: number) => {
+    setHoveredRow(index);
   };
   const onRowLeave = () => {
-    console.log("mouse leaving");
-    setShowRowDeleteBin(false);
+    setHoveredRow(-1);
   };
+
+  //DELETING SPREADSHEET ROW USING SIDE BIN
+  const onRowDelete = () => {};
 
   //fetching spreadsheet data
   const [spreadsheetData, setSpreadsheetData] = useState<SpreadsheetEntry[]>(
@@ -104,6 +105,7 @@ export default function Generator() {
             </Card.Header>
             <Card.Body className="report-body">Excessive leaks</Card.Body>
           </Card>
+          {/* GENERATOR EVENT LOGS MODAL */}
           <Card
             className="generator-card generator-event-logs"
             onClick={onGeneratorEventLogsClick}
@@ -149,7 +151,7 @@ export default function Generator() {
               {spreadsheetData.map((data, index) => (
                 <tr
                   key={index}
-                  onMouseEnter={onRowHover}
+                  onMouseEnter={() => onRowHover(index)}
                   onMouseLeave={onRowLeave}
                 >
                   <td>{data.noStart}</td>
@@ -163,8 +165,9 @@ export default function Generator() {
                   <td>{data.runTime}</td>
                   <td>{data.errorCodeComment}</td>
                   <td>{data.name}</td>
-                  <td>{index}</td>
-                  {showRowDeleteBin && <SideBin />}
+                  {hoveredRow === index && (
+                    <SideBin onRowDelete={onRowDelete} />
+                  )}
                 </tr>
               ))}
             </tbody>

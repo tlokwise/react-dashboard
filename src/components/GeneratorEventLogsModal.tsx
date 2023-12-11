@@ -1,6 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
+
+
 export default function GeneratorEventLogs(props: { show: string }) {
   const { show } = props;
   if (show == "show") {

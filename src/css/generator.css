@@ -97,29 +97,34 @@
   border:  none;
   padding: 5px;
 }
-.new-entry-row tr {
+.new-entry-row {
   transition: all .3 ease-in;
 }
-.new-entry-row tr td {
+.new-entry-row:hover {
+  background-color: inherit !important;
+}
+.new-entry-row td {
   padding: 0;
 }
 .new-entry-controls{
   text-align: end;
 }
-.new-entry-cancel-btn {
-  float: right;
+.new-entry-controls:hover {
+  background-color: #fff !important;
 }
+
 .new-entry-save-btn {
   width: 90px;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 
 /* delete row side bin */
 .delete-row-side-bin {
   position: absolute;
-  background-color: var(--greenstone);
+  cursor: pointer;
 }
+
 .side-bin {
   color: red;
   font-size: 20px;
