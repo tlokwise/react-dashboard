@@ -52,7 +52,7 @@ export default function Navbar() {
             </a>
           </li>
           <li className="nav-item">
-            <a href="#fuel" className="nav-link">
+            <a href="/dashboard/fuel" className="nav-link">
               <Droplet />
               <span>Fuel</span>
             </a>
