@@ -6,7 +6,15 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 // import Alert from "react-bootstrap/Alert";
-import { GraphUp, FileRuled, Tools, List } from "react-bootstrap-icons";
+import {
+  GraphUp,
+  FileRuled,
+  Tools,
+  List,
+  Printer,
+  Share,
+  Plus,
+} from "react-bootstrap-icons";
 
 //COMPONENTS
 import Navbar from "../components/Navbar";
@@ -122,12 +130,21 @@ export default function Generator() {
         <div className="generator-content">
           <div className="generator-content-header">
             <h1>Spreadsheet</h1>
-            <Button
-              className="btn btn-success"
-              onClick={onSpreadsheetNewEntryClick}
-            >
-              New Entry
-            </Button>
+            <div className="generator-content-controls">
+              <Button
+                className="btn btn-success generator-spreadsheet-new-entry-btn"
+                onClick={onSpreadsheetNewEntryClick}
+              >
+                <Plus />
+                New Entry
+              </Button>
+              <Button className="btn btn-secondary generator-spreadsheet-print-btn">
+                <Printer />
+              </Button>
+              <Button className="btn btn-secondary generator-spreadsheet-share-btn">
+                <Share />
+              </Button>
+            </div>
           </div>
 
           <Table striped bordered hover className="spreedsheet-table">

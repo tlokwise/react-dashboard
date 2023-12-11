@@ -18,6 +18,13 @@
   margin-top: 50px;
 }
 
+.generator-spreadsheet-print-btn {
+  margin-left: 10px
+}
+.generator-spreadsheet-share-btn {
+  margin-left: 10px;
+}
+
 .generator-tabs  {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

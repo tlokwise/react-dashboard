@@ -3,12 +3,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import {
   House,
   Chat,
-  CardChecklist,
   LightningCharge,
   Search,
-  FuelPump,
   BoxArrowRight,
-  Tree,
   Bell,
 } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
@@ -49,18 +46,6 @@ export default function Navbar() {
               <LightningCharge />
               <span>Generator</span>
             </a>
-          </li>
-          <li className="nav-item">
-            <Link to="#jet-fuel" className="nav-link">
-              <FuelPump />
-              <span>Jet Fuel</span>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="#requests" className="nav-link">
-              <Tree />
-              <span>Lawn Mower</span>
-            </Link>
           </li>
           <li className="nav-item">
             <Link to="#requests" className="nav-link">
