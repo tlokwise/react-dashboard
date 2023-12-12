@@ -1,22 +1,24 @@
 import Card from "react-bootstrap/Card";
+// HOOKS
 
 //ICONS
 import { CurrencyDollar, BarChart, CheckCircle } from "react-bootstrap-icons";
 
 //LIBRARIES
-import { useState } from "react";
 
-export default function FuelTabs() {
-  const [tab, setTab] = useState("");
-  const handleFuelTabClick = (whichTab: string) => {
-    setTab(whichTab);
-    console.log(tab);
-  };
+//props
+interface FuelTabsProps {
+  // onFuelTabChange : (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onFuelTabChange: (tab: string) => void;
+}
+
+export default function FuelTabs({ onFuelTabChange } : FuelTabsProps) {
   return (
     <div className="fuel-tabs">
       <Card
         className="fuel-card fuel-price-card"
-        onClick={() => handleFuelTabClick("fuel-price-card")}
+        onClick={() => onFuelTabChange("prices")}
+        // PRICES TAB
       >
         <Card.Header>
           <h4>
@@ -27,7 +29,8 @@ export default function FuelTabs() {
       </Card>
       <Card
         className="fuel-card fuel-usage-card"
-        onClick={() => handleFuelTabClick("fuel-usage-card")}
+        onClick={() => onFuelTabChange("usage")}
+        // USAGE TAB
       >
         <Card.Header>
           <h4>
@@ -38,7 +41,8 @@ export default function FuelTabs() {
       </Card>
       <Card
         className="fuel-card fuel-quality-checker-card"
-        onClick={() => handleFuelTabClick("fuel-quality-checker-card")}
+        onClick={() => onFuelTabChange("quality-check")}
+        // QUALITY TAB
       >
         <Card.Header>
           <h4>
