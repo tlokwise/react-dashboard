@@ -6,7 +6,7 @@ export default function FuelPrices() {
   const [contentType, setContentType] = useState<string>("data");
   const handleContentType = (content: string) => {
     setContentType(content);
-    console.log(content)
+    console.log(content);
   };
 
   const renderContent = () => {
@@ -25,7 +25,8 @@ export default function FuelPrices() {
     <>
       <FuelContentNav onContentTypeSelect={handleContentType} />
       <div className="fuel-content-body">
-        <h1>{renderContent()}</h1>
+        <h1>Prices</h1>
+        {renderContent()}
       </div>
     </>
   );
