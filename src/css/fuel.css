@@ -1,0 +1,67 @@
+.fuel {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: fit-content;
+    z-index: -1;
+}
+
+.fuel-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Adjust the gap between elements as needed */
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.fuel-tabs .fuel-card {
+    color: #fff;
+    transition: all .3s ease;
+}
+.fuel-tabs .fuel-card h4 span {
+    margin-left: 10px;
+}
+.fuel-tabs .fuel-card:hover{
+    transform: scale(1.03);
+}
+.fuel-tabs .fuel-card:active {
+    transform: scale(1);
+}
+.fuel-tabs .fuel-price-card {
+    background-color: var(--greenstone)
+}
+.fuel-tabs .fuel-usage-card {
+    background-color: var(--orange);
+}
+.fuel-tabs .fuel-quality-checker-card {
+    background-color: var(--midnight-blue);
+}
+
+/* FUEL CONTENT */
+.fuel-content-nav {
+    background-color: var(--primary);
+    padding: 5px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+}
+.fuel-content-nav-link {
+    color: #fff;
+}
+.fuel-content-nav-link.active {
+    background-color: #fff !important;
+    color: var(--primary) !important;
+}
+.fuel-content-nav-link.active:hover {
+    color: var(--primary) !important;
+}
+.fuel-content-nav-link:hover {
+    color: var(--background) !important;
+}
+.fuel-content-body {
+    border: 2px solid grey;
+    /* border-radius: 10px; */
+}

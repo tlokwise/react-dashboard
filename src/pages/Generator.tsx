@@ -4,22 +4,15 @@ import "../css/generator.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 // import Alert from "react-bootstrap/Alert";
-import {
-  GraphUp,
-  FileRuled,
-  Tools,
-  List,
-  Printer,
-  Share,
-  Plus,
-} from "react-bootstrap-icons";
+import { Printer, Share, Plus } from "react-bootstrap-icons";
 
 //COMPONENTS
 import Navbar from "../components/Navbar";
 import GeneratorNewEntry from "../components/GeneratorNewEntry";
 import SideBin from "../components/SideBin";
+import GeneratorTabs from "../components/GeneratorTabs";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 //FUNCTIONS AND CONSTANTS
 
 type SpreadsheetEntry = {
@@ -77,44 +70,11 @@ export default function Generator() {
   }, [spreadsheetData]);
   return (
     <>
+      <ScrollToTopButton />
       <Navbar />
       <div className="generator">
         <div className="generator-alerts"></div>
-        <div className="generator-tabs">
-          <Card className="generator-card generator-service-report-card">
-            <Card.Header className="generator-card-header">
-              <FileRuled />
-              <h4>Generator Service Report </h4>
-            </Card.Header>
-            <Card.Body className="report-body">
-              Last Service: 17 Jan 2020
-            </Card.Body>
-          </Card>
-          <Card className="generator-card generator-usage-tracker">
-            <Card.Header className="generator-card-header">
-              <GraphUp />
-              <h4>Generator Diesel Tracker</h4>
-            </Card.Header>
-            <Card.Body className="report-body">Capacity: 20%</Card.Body>
-          </Card>
-          <Card className="generator-card generator-diagnostics">
-            <Card.Header className="generator-card-header">
-              <Tools />
-              <h4>Generator Diagnostics </h4>
-            </Card.Header>
-            <Card.Body className="report-body">Excessive leaks</Card.Body>
-          </Card>
-          {/* GENERATOR EVENT LOGS MODAL */}
-          <Card className="generator-card generator-event-logs">
-            <Card.Header className="generator-card-header">
-              <List />
-              <h4>Generator Event Logs</h4>
-            </Card.Header>
-            <Card.Body className="report-body">
-              Electronic Failed to synchronize
-            </Card.Body>
-          </Card>
-        </div>
+        <GeneratorTabs />
         <div className="generator-content">
           <div className="generator-content-header">
             <h1>Spreadsheet</h1>
