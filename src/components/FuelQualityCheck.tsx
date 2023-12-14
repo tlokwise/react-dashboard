@@ -8,7 +8,6 @@ export default function FuelQualityCheck() {
   const [contentType, setContentType] = useState<string>("data");
   const handleContentType = (content: string) => {
     setContentType(content);
-    console.log(content);
   };
 
   const renderContent = () => {

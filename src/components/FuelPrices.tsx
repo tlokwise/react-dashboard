@@ -6,7 +6,6 @@ export default function FuelPrices() {
   const [contentType, setContentType] = useState<string>("data");
   const handleContentType = (content: string) => {
     setContentType(content);
-    console.log(content);
   };
 
   const renderContent = () => {
